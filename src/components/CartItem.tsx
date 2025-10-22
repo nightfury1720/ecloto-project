@@ -1,6 +1,5 @@
 import { CartItem as CartItemType } from "@/types";
 import { FREE_GIFT } from "@/data/products";
-import { it } from "node:test";
 
 interface CartItemProps {
   item: CartItemType;
@@ -16,7 +15,7 @@ export const CartItem = ({
   const isFreeGift = item.product.id === FREE_GIFT.id;
 
   return (
-    <div className="bg-white rounded-lg shadoow-sm p-3 sm:p-4 flex flex-col justify-betweeen gap-3 sm:gap-4">
+    <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 flex items-center justify-between gap-4">
       <div className="flex-1 min-w-0">
         <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 truncate">
           {item.product.name}
@@ -27,7 +26,7 @@ export const CartItem = ({
         </p>
       </div>
 
-      <div className="flex item-center justify-between sm:justify-end space-x-2">
+      <div className="flex items-center space-x-2">
         {isFreeGift ? (
           <div className="bg-green-100 text-green-800 px-2 sm:px-3 rounded-md font-medium text-xs sm:text-sm">
             FREE GIFT
@@ -39,7 +38,7 @@ export const CartItem = ({
                 onClick={() =>
                   onUpdateQuantity(item.product.id, item.quantity - 1)
                 }
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-red-600 flex item-center justify-center text-white font-bold text-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-red-600 flex items-center justify-center text-white font-bold text-sm"
                 aria-label="dec"
               >
                 -
@@ -49,20 +48,12 @@ export const CartItem = ({
                 onClick={() =>
                   onUpdateQuantity(item.product.id, item.quantity + 1)
                 }
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-green-600 flex item-center justify-center text-white font-bold text-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-green-600 flex items-center justify-center text-white font-bold text-sm"
                 aria-label="inc"
               >
                 +
               </button>
             </div>
-            {/* <button
-                onClick={() =>
-                  onRemove(item.product.id)
-                }
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-green-600 flex item-center justify-center text-white font-bold text-sm"
-              >
-                Remove
-              </button> */}
           </>
         )}
       </div>

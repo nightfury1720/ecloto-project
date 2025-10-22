@@ -17,17 +17,15 @@ export const CartItemsList = ({
   }
 
   return (
-    <div className="rounded-lg shadow-md p-4 sm:p-6">
-      <div className="space-y-3">
-        {items.map((item) => (
-          <CartItem
-            key={item.product.id}
-            item={item}
-            onRemove={onRemove}
-            onUpdateQuantity={onUpdateQuantity}
-          />
-        ))}
-      </div>
+    <div className="space-y-4">
+      {items.map((item) => (
+        <CartItem
+          key={item.product.id}
+          item={item}
+          onRemove={onRemove}
+          onUpdateQuantity={onUpdateQuantity}
+        />
+      ))}
     </div>
   );
 };
